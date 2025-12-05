@@ -1,0 +1,575 @@
+/* =====================================
+   FUENTE MONTSERRAT
+   ===================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* =====================================
+   RESET
+   ===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+    color: #e5e7eb;
+    line-height: 1.6;
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+h1,
+.demo-section h2,
+h3,
+.border-box strong,
+.radius-box strong {
+    font-weight: 700; /* Montserrat bold */
+}
+
+h1 {
+    text-align: center;
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: #9ca3af;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+h3 {
+    margin: 1.5rem 0 1rem 0;
+    color: #e5e7eb;
+}
+
+code {
+    background: #0f172a;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #f97316;
+}
+
+/* =====================================
+   SECCIONES DEMO
+   ===================================== */
+
+.demo-section {
+    background: #020617;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.demo-section h2 {
+    color: #a855f7;
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+}
+
+/* =====================================
+   SECCIÓN 1: ESTILOS DE BORDER
+   ===================================== */
+
+.border-styles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.border-box {
+    padding: 1.5rem;
+    background: #020617;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.6);
+}
+
+.border-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.9);
+}
+
+.border-box strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #e5e7eb;
+    font-size: 1.1rem;
+}
+
+.border-box p {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    margin: 0.25rem 0;
+}
+
+/* ⭐ ESTILOS DE BORDER (mismos colores de antes) */
+.border-solid {
+    border: 3px solid #3498db;
+}
+
+.border-dashed {
+    border: 3px dashed #2ecc71;
+}
+
+.border-dotted {
+    border: 3px dotted #e74c3c;
+}
+
+.border-double {
+    border: 5px double #9b59b6;
+}
+
+.border-groove {
+    border: 5px groove #34495e;
+}
+
+.border-ridge {
+    border: 5px ridge #1abc9c;
+}
+
+.border-inset {
+    border: 5px inset #e67e22;
+}
+
+.border-outset {
+    border: 5px outset #f39c12;
+}
+
+/* =====================================
+   SECCIÓN 2: BORDES INDIVIDUALES
+   ===================================== */
+
+.individual-borders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.border-top-only {
+    border-top: 4px solid #3498db;
+}
+
+.border-bottom-only {
+    border-bottom: 4px solid #2ecc71;
+}
+
+.border-left-only {
+    border-left: 4px solid #e74c3c;
+}
+
+.border-mixed {
+    border-top: 3px solid #3498db;
+    border-bottom: 3px solid #e74c3c;
+}
+
+/* =====================================
+   SECCIÓN 3: BORDER-RADIUS
+   ===================================== */
+
+.radius-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.radius-box {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    color: white;
+    text-align: center;
+    border: 3px solid #1f2937;
+    border-radius: 18px;
+}
+
+.radius-box strong {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ⭐ BORDER-RADIUS - Diferentes valores */
+.radius-small {
+    border-radius: 5px;
+}
+
+.radius-medium {
+    border-radius: 15px;
+}
+
+.radius-large {
+    border-radius: 30px;
+}
+
+.radius-pill {
+    border-radius: 999px;
+}
+
+/* =====================================
+   SECCIÓN 4: FORMAS
+   ===================================== */
+
+.shapes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.shape-container {
+    text-align: center;
+}
+
+.shape-container p {
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 700;
+    color: #e5e7eb;
+}
+
+.shape {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    border: 3px solid #4f46e5;
+}
+
+/* ⭐ FORMAS CON BORDER-RADIUS */
+.circle {
+    border-radius: 50%;
+}
+
+.rounded-square {
+    border-radius: 20px;
+}
+
+.top-rounded {
+    border-radius: 50% 50% 0 0;
+}
+
+.leaf {
+    border-radius: 0 100% 0 100%;
+}
+
+/* =====================================
+   SECCIÓN 5: BOTONES
+   ===================================== */
+
+.buttons-demo {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0 2rem 0;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+/* Botones sólidos */
+.btn-filled {
+    background: #38bdf8;
+    color: #020617;
+    border: 2px solid #38bdf8;
+}
+
+.btn-filled:hover {
+    background: #0ea5e9;
+    border-color: #0ea5e9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(56, 189, 248, 0.55);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #4ade80;
+    border: 2px solid #4ade80;
+}
+
+.btn-outline:hover {
+    background: #4ade80;
+    color: #022c22;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: #fb7185;
+    border: 2px solid transparent;
+}
+
+.btn-ghost:hover {
+    border-color: #fb7185;
+}
+
+/* Botones con efectos */
+.btn-border-grow {
+    background: #020617;
+    color: #a855f7;
+    border: 2px solid #a855f7;
+}
+
+.btn-border-grow:hover {
+    border-width: 4px;
+}
+
+.btn-border-spin {
+    background: #020617;
+    color: #22c55e;
+    border: 3px dashed #22c55e;
+    border-radius: 50px;
+}
+
+.btn-border-spin:hover {
+    border-style: solid;
+    transform: rotate(360deg);
+}
+
+.btn-slide-border {
+    background: #020617;
+    color: #fb923c;
+    border: none;
+    border-bottom: 3px solid transparent;
+}
+
+.btn-slide-border:hover {
+    border-bottom-color: #fb923c;
+}
+
+/* =====================================
+   SECCIÓN 6: CARDS
+   ===================================== */
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    padding: 1.5rem;
+    background: #020617;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.9);
+}
+
+.card h3 {
+    color: #e5e7eb;
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+}
+
+.card p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+
+/* Estilos de cards */
+.card-simple {
+    border: 1px solid #4b5563;
+    border-radius: 8px;
+}
+
+.card-thick {
+    border: 3px solid #38bdf8;
+    border-radius: 12px;
+}
+
+.card-accent {
+    border: 1px solid #4b5563;
+    border-left: 5px solid #4ade80;
+    border-radius: 4px;
+}
+
+.card-dashed {
+    border: 2px dashed #a855f7;
+    border-radius: 10px;
+}
+
+/* =====================================
+   SECCIÓN 7: AVATARES
+   ===================================== */
+
+.avatars-demo {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.avatar-container {
+    text-align: center;
+}
+
+.avatar-container p {
+    margin-top: 0.5rem;
+    font-weight: 700;
+    color: #e5e7eb;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border: 3px solid #38bdf8;
+    border-radius: 18px;
+    background: #020617;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-circle {
+    border-radius: 50%;
+}
+
+.avatar-rounded {
+    border-radius: 20px;
+}
+
+.avatar-square {
+    border-radius: 0;
+}
+
+/* =====================================
+   SECCIÓN 8: EFECTOS AVANZADOS
+   ===================================== */
+
+.advanced-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.advanced-box {
+    padding: 2rem;
+    text-align: center;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: #020617;
+    color: #e5e7eb;
+}
+
+.advanced-box p {
+    margin: 0.5rem 0;
+}
+
+/* Border con gradiente (truco) */
+.gradient-border {
+    background:
+        linear-gradient(#020617, #020617) padding-box,
+        linear-gradient(135deg, #6366f1, #a855f7) border-box;
+    border: 4px solid transparent;
+}
+
+/* Border con glow */
+.glow-border {
+    border: 2px solid #38bdf8;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+}
+
+.glow-border:hover {
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.9);
+}
+
+/* Border animado */
+.animated-border {
+    border: 3px solid #4ade80;
+    position: relative;
+}
+
+.animated-border:hover {
+    border-color: #f97316;
+}
+
+/* =====================================
+   CÓDIGO DE REFERENCIA
+   ===================================== */
+
+.code-section {
+    background: #020617;
+    color: #e5e7eb;
+}
+
+.code-section h2 {
+    color: #38bdf8;
+}
+
+pre {
+    background: #020617;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    line-height: 1.8;
+    margin-top: 1rem;
+    border: 1px solid #4b5563;
+}
+
+pre code {
+    color: #22c55e;
+    font-size: 0.95rem;
+    background: none;
+}
+
+/* =====================================
+   RESPONSIVE
+   ===================================== */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .demo-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .border-styles-grid,
+    .radius-grid,
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .buttons-demo {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+

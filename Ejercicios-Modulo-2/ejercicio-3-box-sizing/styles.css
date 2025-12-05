@@ -1,0 +1,265 @@
+/* =====================================
+   FUENTE ORBITRON
+   ===================================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+/* Box-Sizing Comparison - Styles */
+
+body {
+    font-family: 'Orbitron', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+    min-height: 100vh;
+    color: #e5e7eb;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #38bdf8;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.08em;
+}
+
+.intro {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+code {
+    background: rgba(15,23,42,0.85);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #f97316;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.box-wrapper {
+    background: #020617;
+    padding: 2rem;
+    border-radius: 14px;
+    box-shadow: 0 18px 45px rgba(15,23,42,0.95);
+    border: 1px solid rgba(148,163,184,0.4);
+}
+
+.box-wrapper h2 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.3rem;
+    color: #e5e7eb;
+}
+
+/* LAS DOS CAJAS - MISMO CÓDIGO CSS */
+.box {
+    width: 200px;          /* ⭐ Ambas tienen 200px */
+    padding: 20px;         /* ⭐ Ambas tienen 20px padding */
+    border: 10px solid #38bdf8; /* ⭐ Ambas tienen 10px border */
+    background-color: #020617;
+    margin: 0 auto 1.5rem;
+    min-height: 120px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.8);
+}
+
+/* ÚNICA DIFERENCIA: box-sizing */
+.content-box {
+    box-sizing: content-box; /* ❌ Por defecto - width NO incluye padding/border */
+}
+
+.border-box {
+    box-sizing: border-box; /* ✅ Recomendado - width SÍ incluye padding/border */
+}
+
+.box p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    color: #e5e7eb;
+}
+
+.box .result {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #f97316;
+}
+
+.calculation {
+    background: #020617;
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 4px solid #38bdf8;
+}
+
+.calculation p {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    color: #e5e7eb;
+}
+
+.calculation code {
+    display: block;
+    background: #020617;
+    padding: 1rem;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    line-height: 1.8;
+    color: #e5e7eb;
+    border: 1px solid #4b5563;
+}
+
+.calculation strong {
+    color: #f97316;
+    font-size: 1.2em;
+}
+
+.explanation,
+.best-practice,
+.interactive-demo {
+    background: #020617;
+    padding: 2rem;
+    border-radius: 14px;
+    margin-bottom: 2rem;
+    box-shadow: 0 14px 38px rgba(15,23,42,0.95);
+    border: 1px solid rgba(148,163,184,0.4);
+}
+
+.explanation h2,
+.best-practice h2,
+.interactive-demo h2 {
+    color: #e5e7eb;
+    margin: 0 0 1.5rem 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.benefit {
+    padding: 1rem;
+    background: rgba(15,23,42,0.95);
+    border-radius: 8px;
+    border-left: 4px solid #22c55e;
+}
+
+.benefit h3 {
+    margin: 0 0 0.5rem 0;
+    color: #22c55e;
+    font-size: 1rem;
+}
+
+.benefit p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+.best-practice pre {
+    background: #020617;
+    color: #ecf0f1;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    border: 1px solid #4b5563;
+}
+
+.best-practice pre code {
+    background: none;
+    color: #22c55e;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.tip {
+    background: #fef3c7;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid #facc15;
+    margin: 1rem 0 0 0;
+    color: #3f3f46;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    color: #e5e7eb;
+}
+
+.controls input[type="range"] {
+    flex: 1;
+}
+
+.controls span {
+    display: inline-block;
+    min-width: 60px;
+    color: #38bdf8;
+}
+
+.demo-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.demo-box {
+    box-sizing: content-box;
+    width: 200px;
+    padding: 20px;
+    border: 10px solid #e74c3c;
+    background-color: #451a1a;
+    margin: 0 auto;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: #fee2e2;
+    box-shadow: 0 10px 26px rgba(127,29,29,0.7);
+}
+
+.demo-border-box {
+    box-sizing: border-box;
+    border-color: #22c55e;
+    background-color: #064e3b;
+    box-shadow: 0 10px 26px rgba(6,95,70,0.7);
+}
+
+.demo-box p {
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .comparison-grid,
+    .demo-boxes {
+        grid-template-columns: 1fr;
+    }
+    
+    .box {
+        width: 100%;
+        max-width: 200px;
+    }
+}

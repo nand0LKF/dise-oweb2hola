@@ -1,0 +1,393 @@
+/* =====================================
+   FUENTE ORBITRON
+   ===================================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+/* =====================================
+   RESET Y BOX-SIZING GLOBAL
+   ===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* ⭐ CRÍTICO: Hace los tamaños predecibles */
+}
+
+:root {
+    /* Colores – tema oscuro futurista */
+    --color-primary: #38bdf8;         /* Celeste neón */
+    --color-primary-dark: #0ea5e9;
+    --color-secondary: #64748b;       /* Gris azulado */
+    --color-success: #22c55e;         /* Verde neón */
+    --color-danger: #fb7185;          /* Rosa/rojo neón */
+    --color-text: #e5e7eb;            /* Texto principal claro */
+    --color-text-light: #9ca3af;      /* Texto secundario */
+    --color-bg: #020617;              /* Fondo de cards */
+    --color-bg-secondary: #020617;    /* Fondo general */
+    --color-border: #1f2937;          /* Borde sutil oscuro */
+    
+    /* Espaciado */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Sombras – más profundas para tema oscuro */
+    --shadow-sm: 0 1px 4px rgba(15, 23, 42, 0.8);
+    --shadow-md: 0 8px 20px rgba(15, 23, 42, 0.9);
+    --shadow-lg: 0 22px 55px rgba(15, 23, 42, 1);
+    
+    /* Transiciones */
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Orbitron', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background:
+        radial-gradient(circle at top, #1f2937 0, #020617 40%, #000 100%);
+    padding: var(--spacing-xl) 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.page-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.1rem;
+}
+
+/* =====================================
+   GRID DE CARDS
+   ===================================== */
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* =====================================
+   CARD COMPONENT - BOX MODEL COMPLETO
+   ===================================== */
+
+.card {
+    /* ⭐ BOX-SIZING: border-box hace que width sea el tamallo total */
+    box-sizing: border-box;
+    
+    /* ⭐ WIDTH: Ancho fijo de 300px (incluye padding y border) */
+    width: 100%;
+    max-width: 350px;
+    
+    /* ⭐ BACKGROUND – efecto glass/neón */
+    background:
+        linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(168, 85, 247, 0.05));
+    backdrop-filter: blur(14px);
+    
+    /* ⭐ BORDER: Borde con feeling de tarjeta tech */
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    border-radius: 16px;
+    
+    /* ⭐ BOX-SHADOW: Sombra sutil */
+    box-shadow: var(--shadow-sm);
+    
+    /* Overflow para que el border-radius afecte a la imagen */
+    overflow: hidden;
+    
+    /* Transición suave */
+    transition: var(--transition);
+    
+    /* Flexbox para layout interno */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover effect en toda la card */
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+}
+
+/* =====================================
+   CARD IMAGE
+   ===================================== */
+
+.card-image {
+    /* Sin padding aquí - la imagen llega hasta los bordes */
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: #020617;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.06);
+}
+
+/* Badge en la imagen */
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: radial-gradient(circle at top, #22c55e 0, #16a34a 60%, #166534 100%);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 18px rgba(22, 163, 74, 0.8);
+}
+
+.badge-sale {
+    background: radial-gradient(circle at top, #fb7185 0, #e11d48 60%, #9f1239 100%);
+    box-shadow: 0 8px 20px rgba(248, 113, 113, 0.9);
+}
+
+/* =====================================
+   CARD CONTENT - AQUÍ SE APLICA PADDING
+   ===================================== */
+
+.card-content {
+    /* ⭐ PADDING: 20px en todos los lados */
+    padding: var(--spacing-md);
+    
+    /* Flex para que el footer se quede abajo */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.3;
+}
+
+.card-price {
+    margin-bottom: var(--spacing-sm);
+}
+
+.price-current {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.price-old {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    text-decoration: line-through;
+    margin-left: var(--spacing-xs);
+}
+
+.card-description {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+    flex: 1; /* Ocupa el espacio disponible */
+}
+
+/* =====================================
+   CARD FOOTER
+   ===================================== */
+
+.card-footer {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-top: auto; /* Se queda al final */
+}
+
+button {
+    /* ⭐ PADDING: Espacio interno del botón */
+    padding: 12px 20px;
+    
+    /* ⭐ BORDER */
+    border: none;
+    border-radius: 6px;
+    
+    /* Cursor y transición */
+    cursor: pointer;
+    transition: var(--transition);
+    
+    /* Tipografía */
+    font-size: 0.9rem;
+    font-weight: 600;
+    
+    /* Flex para expandir */
+    flex: 1;
+    font-family: 'Orbitron', system-ui, sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #38bdf8, #22c55e);
+    color: #020617;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0ea5e9, #16a34a);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background: radial-gradient(circle at top, rgba(56,189,248,0.15) 0, transparent 60%);
+    color: var(--color-primary);
+}
+
+/* =====================================
+   EXPLICACIÓN DEL BOX MODEL
+   ===================================== */
+
+.box-model-explanation {
+    background: rgba(15, 23, 42, 0.95);
+    padding: var(--spacing-xl);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    margin-top: var(--spacing-xl);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.box-model-explanation h2 {
+    text-align: center;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.75rem;
+}
+
+.explanation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.explanation-item {
+    /* ⭐ BOX MODEL DEMOSTRADO */
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-primary);
+    border-radius: 10px;
+    background: #020617;
+    transition: var(--transition);
+}
+
+.explanation-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: scale(1.02);
+}
+
+.explanation-item h3 {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.explanation-item p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* =====================================
+   RESPONSIVE
+   ===================================== */
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .card {
+        max-width: 100%;
+    }
+    
+    .card-footer {
+        flex-direction: column;
+    }
+    
+    .explanation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================================
+   NOTAS EDUCATIVAS
+   ===================================== */
+
+/*
+📦 BOX MODEL APLICADO EN ESTE EJERCICIO (igual que tu versión clara):
+
+1. GLOBAL BOX-SIZING:
+   * { box-sizing: border-box; }
+   → Hace que width/height incluyan padding y border
+   
+2. CARD:
+   - width: 100% (max-width: 350px)
+   - padding: 0 (el padding está en card-content)
+   - border: 1px solid
+   - margin: 0 (el spacing se maneja con gap en grid)
+   - box-shadow: Sombra visual
+   
+3. CARD-CONTENT:
+   - padding: 1.5rem (20px en todos los lados)
+   → Crea espacio entre el contenido y el borde
+   
+4. BUTTON:
+   - padding: 12px 20px
+   - border: none (o 2px para secondary)
+   → El padding hace el botón clickeable
+   
+5. MARGIN vs GAP:
+   - NO usamos margin entre cards
+   - Usamos grid gap para mejor control
+   
+6. BORDER-RADIUS:
+   - overflow: hidden en .card
+   → Hace que la imagen respete el border-radius
+   
+⚡ BENEFICIOS DE BORDER-BOX:
+   - width: 350px significa EXACTAMENTE 350px
+   - No importa cuánto padding o border agregues
+   - Mucho más predecible y fácil de trabajar
+*/
