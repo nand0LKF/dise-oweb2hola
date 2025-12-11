@@ -1,68 +1,548 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Índice de ejercicios</title>
+  <meta charset="UTF-8" />
+  <title>Índice de Ejercicios – Boss Mode</title>
+  <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 0% 0%, #3b82f6 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, #ec4899 0, transparent 55%),
+        radial-gradient(circle at 0% 100%, #22c55e 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, #a855f7 0, #020617 70%);
+      color: #e5e7eb;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 32px 16px;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1150px;
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.12), transparent 55%),
+                  rgba(15, 23, 42, 0.92);
+      border-radius: 22px;
+      padding: 26px 26px 30px;
+      box-shadow:
+        0 0 50px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(148, 163, 184, 0.2);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(79, 70, 229, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Aura decorativa */
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        conic-gradient(from 180deg at 50% 50%, rgba(56, 189, 248, 0.15), rgba(244, 114, 182, 0.2), rgba(129, 140, 248, 0.22), rgba(34, 197, 94, 0.16), rgba(56, 189, 248, 0.15));
+      opacity: 0.55;
+      mix-blend-mode: screen;
+      filter: blur(26px);
+      animation: aura 18s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes aura {
+      0% { transform: rotate(0deg) translate3d(0,0,0); }
+      100% { transform: rotate(360deg) translate3d(0,0,0); }
+    }
+
+    .shell-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .title-block h1 {
+      font-size: 1.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .title-pill {
+      font-size: 0.74rem;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      background: radial-gradient(circle at 0 0, rgba(96, 165, 250, 0.4), transparent 45%);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #c7d2fe;
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .badge {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(52, 211, 153, 0.7);
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.45), transparent 55%);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #bbf7d0;
+      white-space: nowrap;
+    }
+
+    main {
+      display: grid;
+      gap: 18px;
+    }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .module-card {
+      position: relative;
+      border-radius: 16px;
+      padding: 14px 14px 16px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 64, 175, 0.9));
+      box-shadow:
+        0 14px 30px rgba(15, 23, 42, 0.9),
+        0 0 0 1px rgba(148, 163, 184, 0.35);
+      overflow: hidden;
+    }
+
+    .module-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.5), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.45), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .module-card:hover::before {
+      opacity: 1;
+    }
+
+    .module-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .module-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .module-title span.code {
+      font-size: 0.8rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      color: #c7d2fe;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .module-sub {
+      font-size: 0.8rem;
+      color: #cbd5f5;
+      opacity: 0.9;
+    }
+
+    .module-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .module-list a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      padding: 7px 10px;
+      border-radius: 10px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e5e7eb;
+      font-size: 0.85rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .module-list a span.label {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .module-list a span.tag {
+      font-size: 0.7rem;
+      color: #9ca3af;
+      opacity: 0.95;
+    }
+
+    .module-list a::after {
+      content: "▶";
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    .module-list a:hover {
+      transform: translateY(-2px);
+      background: radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.4), rgba(15, 23, 42, 0.95));
+      border-color: rgba(129, 140, 248, 0.9);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.95);
+    }
+
+    footer {
+      margin-top: 18px;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      text-align: right;
+    }
+
+    footer span {
+      color: #a5b4fc;
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        align-items: flex-start;
+      }
+      .title-block h1 {
+        font-size: 1.4rem;
+      }
+      .shell {
+        padding: 20px 16px 22px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Índice de ejercicios (prueba)</h1>
+  <div class="shell">
+    <div class="shell-inner">
+      <header>
+        <div class="title-block">
+          <h1>
+            Índice de Ejercicios
+            <span class="title-pill">FrontEnd · Training Room</span>
+          </h1>
+          <p class="subtitle">
+            Elige un módulo, entra al ejercicio y que el código haga el resto. 💻✨
+          </p>
+        </div>
+        <div class="badge">
+          Modo estudiante · Aura de boss
+        </div>
+      </header>
 
-  <h2>Módulo 1</h2>
-  <ul>
-    <li><a href="./ARTICULO/index.html">ARTICULO</a></li>
-    <li><a href="./BORDERS/index.html">BORDERS</a></li>
-    <li><a href="./NAVEGACION/index.html">NAVEGACION</a></li>
-    <li><a href="./TARJETA-PERFIL/index.html">TARJETA-PERFIL</a></li>
-  </ul>
+      <main>
+        <div class="modules-grid">
+          <!-- MÓDULO 1 -->
+          <section class="module-card">
+            <div class="module-header">
+              <div class="module-title">
+                <span class="code">Mod 1</span>
+                <span>Fundamentos &amp; Maquetación básica</span>
+              </div>
+            </div>
+            <p class="module-sub">HTML + primeros estilos para calentar motores.</p>
+            <ul class="module-list">
+              <li>
+                <a href="./ARTICULO/index.html">
+                  <span class="label">ARTICULO</span>
+                  <span class="tag">Maquetación de artículo</span>
+                </a>
+              </li>
+              <li>
+                <a href="./BORDERS/index.html">
+                  <span class="label">BORDERS</span>
+                  <span class="tag">Bordes, radios y combinaciones</span>
+                </a>
+              </li>
+              <li>
+                <a href="./NAVEGACION/index.html">
+                  <span class="label">NAVEGACION</span>
+                  <span class="tag">Menú y estructura básica</span>
+                </a>
+              </li>
+              <li>
+                <a href="./TARJETA-PERFIL/index.html">
+                  <span class="label">TARJETA-PERFIL</span>
+                  <span class="tag">Perfil de usuario estilizado</span>
+                </a>
+              </li>
+            </ul>
+          </section>
 
-  <h2>Módulo 2</h2>
-  <ul>
-    <li><a href="./Ejercicios-Modulo-2/index.html">Ejercicios-Modulo-2</a></li>
-    <li><a href="./Mod2Eje4-card/index.html">Mod2Eje4-card</a></li>
-  </ul>
+          <!-- MÓDULO 2 -->
+          <section class="module-card">
+            <div class="module-header">
+              <div class="module-title">
+                <span class="code">Mod 2</span>
+                <span>Modelo de caja &amp; cards</span>
+              </div>
+            </div>
+            <p class="module-sub">Paddings, bordes, box-sizing y componentes tipo card.</p>
+            <ul class="module-list">
+              <li>
+                <a href="./Ejercicios-Modulo-2/index.html">
+                  <span class="label">Ejercicios-Modulo-2</span>
+                  <span class="tag">Índice interno de ejercicios</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod2Eje4-card/index.html">
+                  <span class="label">Mod2Eje4-card</span>
+                  <span class="tag">Card con sombras y espaciados</span>
+                </a>
+              </li>
+            </ul>
+          </section>
 
-  <h2>Módulo 3</h2>
-  <ul>
-    <li><a href="./Mod3Eje1-modal/index.html">Mod3Eje1-modal</a></li>
-    <li><a href="./Mod3Eje2-navbar-stiky/index.html">Mod3Eje2-navbar-stiky</a></li>
-    <li><a href="./Mod3Eje3-card-badge/index.html">Mod3Eje3-card-badge</a></li>
-    <li><a href="./Mod3Eje4-hero-overlay/index.html">Mod3Eje4-hero-overlay</a></li>
-  </ul>
+          <!-- MÓDULO 3 -->
+          <section class="module-card">
+            <div class="module-header">
+              <div class="module-title">
+                <span class="code">Mod 3</span>
+                <span>Componentes UI &amp; layout</span>
+              </div>
+            </div>
+            <p class="module-sub">Modales, navbars y secciones hero con estilo.</p>
+            <ul class="module-list">
+              <li>
+                <a href="./Mod3Eje1-modal/index.html">
+                  <span class="label">Mod3Eje1-modal</span>
+                  <span class="tag">Ventana modal con overlay</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod3Eje2-navbar-stiky/index.html">
+                  <span class="label">Mod3Eje2-navbar-stiky</span>
+                  <span class="tag">Navbar sticky al hacer scroll</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod3Eje3-card-badge/index.html">
+                  <span class="label">Mod3Eje3-card-badge</span>
+                  <span class="tag">Card con insignia</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod3Eje4-hero-overlay/index.html">
+                  <span class="label">Mod3Eje4-hero-overlay</span>
+                  <span class="tag">Hero con overlay oscuro</span>
+                </a>
+              </li>
+            </ul>
+          </section>
 
-  <h2>Módulo 4</h2>
-  <ul>
-    <li><a href="./Mod4Eje1-navbar-flex/index.html">Mod4Eje1-navbar-flex</a></li>
-    <li><a href="./Mod4Eje2-gallery-grid/index.html">Mod4Eje2-gallery-grid</a></li>
-    <li><a href="./Mod4Eje3-holy-grail/index.html">Mod4Eje3-holy-grail</a></li>
-    <li><a href="./Mod4Eje4-dashboard/index.html">Mod4Eje4-dashboard</a></li>
-    <li><a href="./Mod4Eje5-cards-resp/index.html">Mod4Eje5-cards-resp</a></li>
-  </ul>
+          <!-- MÓDULO 4 -->
+          <section class="module-card">
+            <div class="module-header">
+              <div class="module-title">
+                <span class="code">Mod 4</span>
+                <span>Flex · Grid · Layouts pro</span>
+              </div>
+            </div>
+            <p class="module-sub">Layout avanzados con Flexbox y CSS Grid.</p>
+            <ul class="module-list">
+              <li>
+                <a href="./Mod4Eje1-navbar-flexbox/index.html">
+                  <span class="label">Mod4Eje1-navbar-flexbox</span>
+                  <span class="tag">Navbar con Flexbox</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod4Eje2-gallery-grid/index.html">
+                  <span class="label">Mod4Eje2-gallery-grid</span>
+                  <span class="tag">Galería con Grid</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod4Eje3-holy-grail/index.html">
+                  <span class="label">Mod4Eje3-holy-grail</span>
+                  <span class="tag">Holy grail layout</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod4Eje4-dashboard/index.html">
+                  <span class="label">Mod4Eje4-dashboard</span>
+                  <span class="tag">Dashboard con paneles</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod4Eje5-cards-responsive/index.html">
+                  <span class="label">Mod4Eje5-cards-resp</span>
+                  <span class="tag">Cards responsivas</span>
+                </a>
+              </li>
+            </ul>
+          </section>
 
-  <h2>Módulo 5</h2>
-  <ul>
-    <li><a href="./Mod5Eje1-landing-re/index.html">Mod5Eje1-landing-re</a></li>
-    <li><a href="./Mod5Eje2-grid-respo/index.html">Mod5Eje2-grid-respo</a></li>
-    <li><a href="./Mod5Eje3/index.html">Mod5Eje3</a></li>
-    <li><a href="./Mod5Eje4-img-respo/index.html">Mod5Eje4-img-respo</a></li>
-    <li><a href="./Mod5Eje4-typography/index.html">Mod5Eje4-typography</a></li>
-    <li><a href="./Mod5Eje5-Imagenes/index.html">Mod5Eje5-Imagenes</a></li>
-  </ul>
+          <!-- MÓDULO 5 -->
+          <section class="module-card">
+            <div class="module-header">
+              <div class="module-title">
+                <span class="code">Mod 5</span>
+                <span>Responsive &amp; media</span>
+              </div>
+            </div>
+            <p class="module-sub">Landing, rejillas responsivas, imágenes y tipografía.</p>
+            <ul class="module-list">
+              <li>
+                <a href="./Mod5Eje1-landing-responsive/index.html">
+                  <span class="label">Mod5Eje1-landing-re</span>
+                  <span class="tag">Landing page responsiva</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod5Eje2-grid-responsive/index.html">
+                  <span class="label">Mod5Eje2-grid-respo</span>
+                  <span class="tag">Grid responsivo</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod5Eje3/index.html">
+                  <span class="label">Mod5Eje3</span>
+                  <span class="tag">Ejercicio módulo 5</span>
+                </a>
+              </li>
+              <li>
+                <a href="./mod5Eje4-Img-responsiva/index.html">
+                  <span class="label">Mod5Eje4-img-respo</span>
+                  <span class="tag">Imágenes responsivas</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod5Eje4-typography/index.html">
+                  <span class="label">Mod5Eje4-typography</span>
+                  <span class="tag">Sistema tipográfico</span>
+                </a>
+              </li>
+              <li>
+                <a href="./Mod5Eje5-Imágenes Responsive/index.html">
+                  <span class="label">Mod5Eje5-Imagenes</span>
+                  <span class="tag">Más prácticas con imágenes</span>
+                </a>
+              </li>
+            </ul>
+          </section>
 
-  <h2>Módulo 6</h2>
-  <ul>
-    <li><a href="#">(sin ejercicios aún)</a></li>
-  </ul>
+          <!-- MÓDULO 6 -->
+          <section class="module-card">
+            <div class="module-header">
+              <div class="module-title">
+                <span class="code">Mod 6</span>
+                <span>En construcción</span>
+              </div>
+            </div>
+            <p class="module-sub">Aquí me olvide descargarlo ing.</p>
+            <ul class="module-list">
+              <li>
+                <a href="#">
+                  <span class="label">Próximamente</span>
+                  <span class="tag">Espacio reservado</span>
+                </a>
+              </li>
+            </ul>
+          </section>
 
-  <h2>Módulo 7</h2>
-  <ul>
-    <li><a href="./Mod7Eje1/index.html">Mod7Eje1</a></li>
-    <li><a href="./MOD7EJE2/index.html">MOD7EJE2</a></li>
-    <li><a href="./MOD7EJE3/index.html">MOD7EJE3</a></li>
-  </ul>
+          <!-- MÓDULO 7 -->
+          <section class="module-card">
+            <div class="module-header">
+              <div class="module-title">
+                <span class="code">Mod 7</span>
+                <span>Extras &amp; refuerzo</span>
+              </div>
+            </div>
+            <p class="module-sub">Más práctica para terminar de subir todo el nivel.</p>
+            <ul class="module-list">
+              <li>
+                <a href="./Mod7Eje1/index.html">
+                  <span class="label">Mod7Eje1</span>
+                  <span class="tag">Ejercicio 1</span>
+                </a>
+              </li>
+              <li>
+                <a href="./MOD7EJE2/index.html">
+                  <span class="label">MOD7EJE2</span>
+                  <span class="tag">Ejercicio 2</span>
+                </a>
+              </li>
+              <li>
+                <a href="./MOD7EJE3/index.html">
+                  <span class="label">MOD7EJE3</span>
+                  <span class="tag">Ejercicio 3</span>
+                </a>
+              </li>
+            </ul>
+          </section>
 
-  <h2>Proyecto</h2>
-  <ul>
-    <li><a href="./maquetaproyecto/index.html">maquetaproyecto</a></li>
-  </ul>
+          <!-- PROYECTO -->
+          <section class="module-card">
+            <div class="module-header">
+              <div class="module-title">
+                <span class="code">Proj</span>
+                <span>Maqueta Proyecto</span>
+              </div>
+            </div>
+            <p class="module-sub">Un proyecto aparte para juntar todo lo aprendido.</p>
+            <ul class="module-list">
+              <li>
+                <a href="./maquetaproyecto/panando/index.html">
+                  <span class="label">maquetaproyecto</span>
+                  <span class="tag">Vista principal del proyecto</span>
+                </a>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </main>
+
+      <footer>
+        Panel de ejercicios · <span>FrontEnd Boss Mode</span>
+      </footer>
+    </div>
+  </div>
 </body>
 </html>
