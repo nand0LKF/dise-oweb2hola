@@ -1,7 +1,7 @@
 /* Fondo oscuro tipo héroe */
 .hero-section {
     background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
-    color: #f9fafb; /* texto clarito para contraste */
+    color: #f9fafb; 
 }
 
 /* Mantengo la altura mínima */
