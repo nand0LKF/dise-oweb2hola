@@ -1,20 +1,35 @@
+/* Fondo oscuro tipo héroe */
 .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    color: #f9fafb; /* texto clarito para contraste */
 }
 
+/* Mantengo la altura mínima */
 .min-vh-75 {
     min-height: 75vh;
 }
 
+/* Tarjetas con estilo dark */
 .card {
-    transition: transform 0.3s ease;
+    background-color: #111827;
+    color: #e5e7eb;
+    border: 1px solid #1f2937;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.75);
+}
+
+/* Links del footer en modo oscuro */
+footer {
+    background-color: #020617;
+    color: #9ca3af;
 }
 
 footer a {
+    color: #e5e7eb;
     transition: opacity 0.3s;
 }
 
