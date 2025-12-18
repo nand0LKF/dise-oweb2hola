@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>losjausismisterfood - Inicio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <div class="logo">
+          <div class="logo-icon">FN</div>
+          <div class="logo-text">
+            <span class="logo-title">losjausismisterfood</span>
+            <span class="logo-subtitle">Blog de reseñas gastronómicas</span>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Inicio</a>
+          <a href="resenas.html">Reseñas</a>
+          <a href="sobremi.html">Sobre mí</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="hero-text">
+        <div class="hero-pill">
+          🌙 Reseña destacada
+          <span>Proyecto universitario - Blog de restaurante</span>
+        </div>
+
+        <h1 class="hero-title">
+          Noche de sabores en <span class="hero-restaurant">La Terraza Urbana</span>
+        </h1>
+
+        <div class="hero-rating">
+          <div class="stars">★★★★★</div>
+          <span>4.8 / 5 · Fusión moderna · $$$</span>
+        </div>
+
+        <p>
+          Bienvenido a <strong>losjausismisterfood</strong>, un blog de reseñas gastronómicas creado
+          como proyecto universitario. Aquí analizo restaurantes, cafeterías y lugares para
+          comer desde el punto de vista de un cliente normal.
+        </p>
+
+        <div class="chips">
+          <span class="chip">🍝 Reseñas sencillas de entender</span>
+          <span class="chip">🌃 Enfoque en la experiencia</span>
+          <span class="chip">💻 Practicando HTML, CSS y JS</span>
+          <span class="chip">📸 Fotos + mini guía</span>
+          <span class="chip">💸 Precio vs experiencia</span>
+        </div>
+
+        <button class="btn-primary">
+          Ver más detalles
+          <span>↓</span>
+        </button>
+      </div>
+
+      <!-- ✅ HERO CARRUSEL -->
+      <div class="hero-image-card"
+           data-hero-images="img/hero_1_portada.jpg,img/hero_2_ambiente.jpg,img/hero_3_postre.jpg">
+
+        <!-- IMÁGENES FICTICIAS (colócalas en /img/) -->
+        <!-- img/hero_1_portada.jpg -->
+        <!-- img/hero_2_ambiente.jpg -->
+        <!-- img/hero_3_postre.jpg -->
+
+        <img
+          id="hero-img"
+          class="hero-img"
+          src="img/hero_1_portada.jpg"
+          alt="Portada del restaurante - foto 1"
+          loading="lazy" />
+
+        <div class="hero-img-overlay"></div>
+
+        <!-- Controles del carrusel -->
+        <button class="hero-car-btn prev" type="button" aria-label="Foto anterior">‹</button>
+        <button class="hero-car-btn next" type="button" aria-label="Foto siguiente">›</button>
+        <div id="hero-dots" class="hero-car-dots" aria-label="Indicadores del carrusel"></div>
+
+        <div class="hero-badge">
+          <div class="hero-badge-main">
+            <h3>Terraza con vista a la ciudad</h3>
+            <span>Cena bajo luces cálidas, ideal para fotos y momentos especiales.</span>
+          </div>
+          <div class="hero-badge-tag">Reserva recomendada · 20:00 - 22:00</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+      <!-- Columna izquierda: más contenido (relleno pro) -->
+      <div>
+        <!-- Sección a la que baja el botón del hero -->
+        <section id="resenas" class="card">
+          <h2 class="section-title">¿De qué trata losjausismisterfood?</h2>
+          <p class="section-subtitle">
+            Un blog ficticio de reseñas gastronómicas usado como práctica de diseño y programación web.
+          </p>
+
+          <p style="font-size:0.9rem; margin-bottom:0.6rem;">
+            Cada reseña del sitio está pensada para responder tres preguntas simples:
+          </p>
+
+          <ul class="highlights">
+            <li>¿La comida está rica y bien presentada?</li>
+            <li>¿El ambiente y el servicio acompañan la experiencia?</li>
+            <li>¿El precio tiene sentido para lo que ofrecen?</li>
+          </ul>
+
+          <p style="font-size:0.9rem; margin-top:0.6rem;">
+            Puedes ver la lista completa de reseñas en la pestaña
+            <strong>“Reseñas”</strong> del menú superior.
+          </p>
+        </section>
+
+        <!-- NUEVO: mini resumen rápido -->
+        <section class="card" style="margin-top:1rem;">
+          <h2 class="section-title">📌 Resumen express (para gente con hambre y prisa)</h2>
+          <p class="section-subtitle">Lo más importante, sin novela.</p>
+
+          <div class="review-meta" style="margin-bottom:0.6rem;">
+            <span>🧭 Zonas: Centro · Equipetrol · Casco viejo</span>
+            <span>⏱️ Tiempo promedio: 45–70 min</span>
+            <span>💳 Pago: efectivo / tarjeta</span>
+          </div>
+
+          <ul class="highlights">
+            <li>Si buscas “buena foto + buen plato”, prioriza los lugares con buena luz y mesas amplias.</li>
+            <li>Si vas en grupo, mira si el lugar aguanta ruido sin volverse discoteca.</li>
+            <li>La reseña no perdona: si el precio se hace el vivo… lo digo 😄</li>
+          </ul>
+        </section>
+
+        <!-- NUEVO: platos recomendados (usa el estilo review-card existente) -->
+        <section class="card" style="margin-top:1rem;">
+          <h2 class="section-title">🍽️ Top 3 recomendados del mes</h2>
+          <p class="section-subtitle">Ejemplos para que tu página se vea más “viva”.</p>
+
+          <div class="reviews-list">
+            <!-- PLATO 1 -->
+            <article class="review-card" style="grid-template-columns:110px 1fr;">
+              <div class="review-img-wrapper">
+                <!-- IMG FICTICIA -->
+                <!-- img/plato_01_ravioles_ricotta.jpg -->
+                <img class="review-img" src="img/plato_01_ravioles_ricotta.jpg" alt="Ravioles de ricotta" loading="lazy" />
+                <span class="review-tag">Recomendado · Pasta</span>
+              </div>
+              <div class="review-content">
+                <h3>Ravioles de ricotta · “Nivel abrazo”</h3>
+                <div class="review-meta">
+                  <span>⭐ 4.8</span>
+                  <span>🍝 Suave + cremoso</span>
+                  <span>💰 Medio-alto</span>
+                </div>
+                <p class="review-text">
+                  Si te gusta la pasta casera, este es el plato que te hace decir: “ok, valió la pena”.
+                </p>
+              </div>
+            </article>
+
+            <!-- PLATO 2 -->
+            <article class="review-card" style="grid-template-columns:110px 1fr;">
+              <div class="review-img-wrapper">
+                <!-- IMG FICTICIA -->
+                <!-- img/plato_02_burger_doble.jpg -->
+                <img class="review-img" src="img/plato_02_burger_doble.jpg" alt="Hamburguesa doble con papas" loading="lazy" />
+                <span class="review-tag">Street · Burger</span>
+              </div>
+              <div class="review-content">
+                <h3>Burger doble · “Sin arrepentimiento”</h3>
+                <div class="review-meta">
+                  <span>⭐ 4.3</span>
+                  <span>🔥 Jugosa</span>
+                  <span>💰 Accesible</span>
+                </div>
+                <p class="review-text">
+                  Porción generosa, papas crocantes y salsas que no vienen a “rellenar”, vienen a ganar.
+                </p>
+              </div>
+            </article>
+
+            <!-- PLATO 3 -->
+            <article class="review-card" style="grid-template-columns:110px 1fr;">
+              <div class="review-img-wrapper">
+                <!-- IMG FICTICIA -->
+                <!-- img/plato_03_brownie_con_helado.jpg -->
+                <img class="review-img" src="img/plato_03_brownie_con_helado.jpg" alt="Brownie con helado" loading="lazy" />
+                <span class="review-tag">Cafetería · Postre</span>
+              </div>
+              <div class="review-content">
+                <h3>Brownie con helado · “Final boss dulce”</h3>
+                <div class="review-meta">
+                  <span>⭐ 4.6</span>
+                  <span>🍫 Intenso</span>
+                  <span>☕ Ideal con latte</span>
+                </div>
+                <p class="review-text">
+                  Si quieres cerrar una tarde con broche de oro, este combo es el “GG” del día.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div style="margin-top:0.9rem;">
+            <a class="btn-primary" href="resenas.html" style="text-decoration:none;">
+              Ver todas las reseñas
+              <span>→</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- NUEVO: galería mini -->
+        <section class="card" style="margin-top:1rem;">
+          <h2 class="section-title">📸 Mini galería (para que no se vea vacío)</h2>
+          <p class="section-subtitle">Pon estas imágenes en /img/ y listo.</p>
+
+          <ul class="highlights">
+            <li><strong>img/galeria_01_mesa_luces.jpg</strong> — mesa con luces cálidas</li>
+            <li><strong>img/galeria_02_coctel_frutal.jpg</strong> — coctel de la casa</li>
+            <li><strong>img/galeria_03_entrada_crujiente.jpg</strong> — entrada “crunch”</li>
+            <li><strong>img/galeria_04_cafe_latte_art.jpg</strong> — latte art</li>
+          </ul>
+
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.6rem;">
+            Tip: usa fotos horizontales para que se vean finas en el diseño.
+          </p>
+        </section>
+
+        <!-- NUEVO: “opiniones” -->
+        <section class="card" style="margin-top:1rem;">
+          <h2 class="section-title">🗣️ Opiniones (ficticias) de visitantes</h2>
+          <p class="section-subtitle">Relleno elegante para un proyecto universitario.</p>
+
+          <div class="reviews-list">
+            <article class="review-card" style="grid-template-columns:110px 1fr;">
+              <div class="review-img-wrapper">
+                <!-- IMG FICTICIA -->
+                <!-- img/opinion_01_persona.jpg -->
+                <img class="review-img" src="img/opinion_01_persona.png" alt="Foto ficticia de visitante" loading="lazy" />
+                <span class="review-tag">Visitante</span>
+              </div>
+              <div class="review-content">
+                <h3>“Volvería por la pasta” · erivaldos fuentes.</h3>
+                <p class="review-text">Buen ambiente, buena luz y el plato estrella realmente se siente artesanal.</p>
+              </div>
+            </article>
+
+            <article class="review-card" style="grid-template-columns:110px 1fr;">
+              <div class="review-img-wrapper">
+                <!-- IMG FICTICIA -->
+                <!-- img/opinion_02_persona.jpg -->
+                <img class="review-img" src="img/opinion_02_persona.png" alt="Foto ficticia de visitante" loading="lazy" />
+                <span class="review-tag">Visitante</span>
+              </div>
+              <div class="review-content">
+                <h3>“La burger fue un misil” · jesus yailson banegas seas.</h3>
+                <p class="review-text">Porción grande, papas top y las salsas caseras son el gol del partido.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <!-- Columna derecha -->
+      <aside>
+        <section class="card">
+          <h3>Cómo navegar el sitio</h3>
+          <p>Usa las pestañas del menú:</p>
+          <ul class="highlights">
+            <li><strong>Inicio:</strong> Presentación general del proyecto.</li>
+            <li><strong>Reseñas:</strong> Lista de restaurantes y cafeterías analizados.</li>
+            <li><strong>Sobre mí:</strong> Contexto académico y rol del autor.</li>
+            <li><strong>Contacto:</strong> Formulario demostrativo sin envío real.</li>
+          </ul>
+        </section>
+
+        <!-- NUEVO: datos “de local” (ficticios) -->
+        <section class="card">
+          <h3>📍 Datos del lugar (ficticios)</h3>
+          <div class="contact">
+            <div><strong>Dirección:</strong> Av. Ficticia #123, Zona Centro</div>
+            <div><strong>Horario:</strong> 18:00 – 23:30</div>
+            <div><strong>Recomendación:</strong> reservar viernes/sábado</div>
+            <span class="contact-tag">Abierto hoy</span>
+          </div>
+        </section>
+
+        <!-- NUEVO: CTA rápido -->
+        <section class="card">
+          <h3>🎯 ¿Qué quieres ver?</h3>
+          <ul class="highlights">
+            <li>Comparación precio vs experiencia</li>
+            <li>Fotos del ambiente</li>
+            <li>Platos estrella</li>
+          </ul>
+
+          <div style="margin-top:0.8rem;">
+            <a class="btn-primary" href="resenas.html" style="text-decoration:none;">
+              Ir a Reseñas
+              <span>→</span>
+            </a>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <span>losjausismisterfood · Inicio</span>
+      <span>Proyecto universitario · HTML · CSS · JS</span>
+    </footer>
+  </div>
+
+  <button id="btn-subir" aria-label="Volver arriba">↑</button>
+  <script src="./scrip.js" defer></script>
+</body>
+</html>
