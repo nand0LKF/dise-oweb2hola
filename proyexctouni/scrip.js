@@ -243,3 +243,50 @@ document.addEventListener("DOMContentLoaded", () => {
     form.parentNode.insertBefore(ok, form.nextSibling);
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  // Si había algún handler viejo haciendo POST/fetch, esto lo pisa.
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // <- mata el envío real (adiós 405)
+
+    // Validación nativa (required + pattern)
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // "Guardar" modo demo (localStorage)
+    const data = {
+      nombre: form.nombre?.value ?? "",
+      email: form.email?.value ?? "",
+      tipo: form["tipo-visita"]?.value ?? "",
+      mensaje: form.mensaje?.value ?? "",
+      fecha: new Date().toISOString()
+    };
+
+    localStorage.setItem("contacto_demo_guardado", JSON.stringify(data));
+
+    // Recarga la misma página (lo que tú pediste)
+    location.reload();
+  });
+
+  // Opcional: al volver a cargar, mostrar que "se guardó"
+  const saved = localStorage.getItem("contacto_demo_guardado");
+  if (saved) {
+    const box = document.createElement("div");
+    box.className = "card";
+    box.style.marginTop = "12px";
+    box.innerHTML = `
+      <h3 style="margin:0 0 6px 0;">✅ Guardado (demo)</h3>
+      <p style="margin:0; font-size:.95rem;">
+        Se guardó localmente en este navegador (no se envía a ningún servidor).
+      </p>
+    `;
+    form.parentNode.insertBefore(box, form.nextSibling);
+
+    // Si no quieres que aparezca siempre, descomenta esta línea:
+    // localStorage.removeItem("contacto_demo_guardado");
+  }
+});
