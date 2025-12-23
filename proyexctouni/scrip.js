@@ -210,3 +210,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // evita POST y el 405
+
+    // fuerza validación HTML (required + pattern)
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // Mensaje demo (bonito para presentación)
+    const ok = document.createElement("div");
+    ok.className = "card";
+    ok.style.marginTop = "12px";
+    ok.innerHTML = `
+      <h3 style="margin:0 0 6px 0;">✅ Mensaje enviado (modo demostración)</h3>
+      <p style="margin:0; font-size:.95rem;">
+        Esto es una simulación académica: no se guardan ni envían datos reales.
+      </p>
+    `;
+
+    // Evita duplicar mensaje si envían varias veces
+    const existente = document.getElementById("demoMsg");
+    if (existente) existente.remove();
+    ok.id = "demoMsg";
+
+    form.reset();
+    form.parentNode.insertBefore(ok, form.nextSibling);
+  });
+});
